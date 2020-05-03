@@ -3,6 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Trail.h"
+
 class Bullet
 {
 public:
@@ -14,9 +16,11 @@ public:
 	void Update(const float& someDelta);
 	void Draw(sf::RenderWindow& aWindow);
 	sf::CircleShape myBullet;
+	ss::CTrail myTrail;
 	sf::FloatRect myRect;
 private:
 	sf::Vector2f myDir;
 	float mySpeed;
+
 };
 #endif

@@ -23,14 +23,14 @@ Bullet::~Bullet()
 
 void Bullet::Update(const float& someDelta)
 {
-	myBullet.move(myDir * someDelta * mySpeed);
 	myRect = myBullet.getGlobalBounds();
+	myBullet.move(myDir * someDelta * mySpeed);
+	myTrail.SetPosition(myBullet.getPosition() + 0.5f * sf::Vector2f(myBullet.getRadius(), myBullet.getRadius()));
+	myTrail.Update(someDelta);
 }
 
 void Bullet::Draw(sf::RenderWindow& aWindow)
 {
+	aWindow.draw(myTrail);
 	aWindow.draw(myBullet);
 }
-
-
-

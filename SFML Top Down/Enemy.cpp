@@ -1,5 +1,5 @@
 #include "Enemy.h"
-#include <cmath>	
+#include <cmath>
 #include <iostream>
 Enemy::Enemy()
 {
@@ -62,6 +62,7 @@ void Enemy::Draw(sf::RenderWindow &aWindow)
 	aWindow.draw(myShape);
 	for (size_t i = 0; i < myBullets.size(); i++)
 	{
+		aWindow.draw(myBullets[i].myTrail);
 		aWindow.draw(myBullets[i].myBullet);
 	}
 }
@@ -74,7 +75,11 @@ void Enemy::Fire()
 
 	if (distance < 500)
 	{
-		myBullets.push_back(Bullet(norm, 1000.f, myCenter));
+		myBullets.push_back(Bullet(myNorm, 1000.f, myCenter));
+
+		auto& trail = myBullets.back().myTrail;
+		trail.SetColor(sf::Color::Red);
+		trail.SetLifetime(0.2f);
 		myTimer = 0;
 	}
 }
