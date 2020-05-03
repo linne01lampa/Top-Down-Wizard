@@ -73,13 +73,14 @@ void Enemy::Fire()
 	sf::Vector2f aim = myPlayer->myCenter - myCenter;
 	sf::Vector2f norm = aim / sqrt(pow(aim.x, 2) + pow(aim.y, 2));
 
-	if (distance < 500)
+	if (distance < 500 && reloaded)
 	{
-		myBullets.push_back(Bullet(myNorm, 1000.f, myCenter));
+		myBullets.push_back(Bullet(norm, 1000.f, myCenter));
 
 		auto& trail = myBullets.back().myTrail;
 		trail.SetColor(sf::Color::Red);
 		trail.SetLifetime(0.2f);
 		myTimer = 0;
+		reloaded = false;
 	}
 }
