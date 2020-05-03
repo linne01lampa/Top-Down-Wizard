@@ -43,12 +43,13 @@ void Enemy::Update(const float& someDelta, sf::RenderWindow& aWindow)
 	{
 		myBullets[i].Update(someDelta);
 
-		if (myBullets[i].myBullet.getPosition().x < 0 || myBullets[i].myBullet.getPosition().x > aWindow.getSize().x || myBullets[i].myBullet.getPosition().y < 0 || myBullets[i].myBullet.getPosition().y > aWindow.getSize().y)
+		if (myBullets[i].myBullet.getPosition().x < 0 || myBullets[i].myBullet.getPosition().x > aWindow.getSize().x 
+			|| myBullets[i].myBullet.getPosition().y < 0 || myBullets[i].myBullet.getPosition().y > aWindow.getSize().y)
 		{
 			myBullets.erase(myBullets.begin() + i);
 		}
 
-		if (myBullets[i].myRect.intersects(myPlayer->myRect))
+		else if (myBullets[i].myRect.intersects(myPlayer->myRect))
 		{
 			myBullets.erase(myBullets.begin() + i);
 			std::cout << "COLLIDE" << std::endl;

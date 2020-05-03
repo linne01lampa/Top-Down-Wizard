@@ -42,22 +42,24 @@ void App::Update(const float& someDelta, sf::RenderWindow &aWindow)
 
 	//std::cout << myBullets.size() << "\n";
 
+	
 	for (size_t i = 0; i < myBullets.size(); i++)
 	{
 		myBullets[i].Update(someDelta);
 
-		if (myBullets[i].myBullet.getPosition().x < 0 || myBullets[i].myBullet.getPosition().x > aWindow.getSize().x || myBullets[i].myBullet.getPosition().y < 0 || myBullets[i].myBullet.getPosition().y > aWindow.getSize().y)
+		if (myBullets[i].myBullet.getPosition().x < 0 || myBullets[i].myBullet.getPosition().x > aWindow.getSize().x 
+			|| myBullets[i].myBullet.getPosition().y < 0 || myBullets[i].myBullet.getPosition().y > aWindow.getSize().y)
 		{
 			myBullets.erase(myBullets.begin() + i);
 		}
 
-		if (myBullets[i].myRect.intersects(myEnemy.myRect))
+		else if (myBullets[i].myRect.intersects(myEnemy.myRect))
 		{
 			myBullets.erase(myBullets.begin() + i);
 			std::cout << "COLLIDE" << std::endl;
 		}
 	}
-
+	
 	myEnemy.Update(someDelta, aWindow);
 	myPlayer.Update(someDelta, aWindow);
 }
