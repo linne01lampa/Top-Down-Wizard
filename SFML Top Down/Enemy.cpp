@@ -56,6 +56,7 @@ void Enemy::Draw(sf::RenderWindow &aWindow)
 	aWindow.draw(myShape);
 	for (size_t i = 0; i < myBullets.size(); i++)
 	{
+		aWindow.draw(myBullets[i].myTrail);
 		aWindow.draw(myBullets[i].myBullet);
 	}
 }
@@ -72,6 +73,11 @@ void Enemy::Fire()
 	if (distance < 500*500)
 	{
 		myBullets.push_back(Bullet(myNorm, 1000.f, /*myPlayer->*/myCenter));
+
+		auto& trail = myBullets.back().myTrail;
+		trail.SetColor(sf::Color::Red);
+		trail.SetLifetime(0.2f);
+
 		std::cout << myNorm.x;
 		myTimer = 0;
 	}
