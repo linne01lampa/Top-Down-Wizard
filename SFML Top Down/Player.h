@@ -14,6 +14,7 @@ public:
 	void Update(const float& someDelta, sf::RenderWindow& aWindow);
 	void Draw(sf::RenderWindow& aWindow);
 	sf::Vector2f myCenter;
+	sf::FloatRect myRect;
 private:
 	sf::Sprite mySprite;
 	float mySpeed;

@@ -24,6 +24,7 @@ Bullet::~Bullet()
 void Bullet::Update(const float& someDelta)
 {
 	myBullet.move(myDir * someDelta * mySpeed);
+	myRect = myBullet.getGlobalBounds();
 }
 
 void Bullet::Draw(sf::RenderWindow& aWindow)

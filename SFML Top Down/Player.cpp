@@ -28,6 +28,7 @@ void Player::Init(const sf::Texture& aTexture)
 
 void Player::Update(const float& someDelta, sf::RenderWindow &aWindow)
 {
+	myRect = mySprite.getGlobalBounds();
 	myCenter = sf::Vector2f((mySprite.getPosition().x + mySprite.getGlobalBounds().width * .5f), (mySprite.getPosition().y + mySprite.getGlobalBounds().height * .5f));
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && mySprite.getPosition().x > 0)

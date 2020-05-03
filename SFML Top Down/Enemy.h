@@ -16,10 +16,11 @@ public:
 	void Draw(sf::RenderWindow &aWindow);
 	sf::Vector2f myCenter;
 	void Fire();
+	sf::CircleShape myShape;
+	sf::FloatRect myRect;
 
 
 private:
-	sf::CircleShape myShape;
 	float mySpeed;
 	Player* myPlayer;
 	bool reloaded;

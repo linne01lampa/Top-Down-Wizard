@@ -40,6 +40,12 @@ void App::Update(const float& someDelta, sf::RenderWindow &aWindow)
 		{
 			myBullets.erase(myBullets.begin() + i);
 		}
+
+		if (myBullets[i].myRect.intersects(myEnemy.myRect))
+		{
+			myBullets.erase(myBullets.begin() + i);
+			std::cout << "COLLIDE" << std::endl;
+		}
 	}
 
 	myEnemy.Update(someDelta, aWindow);

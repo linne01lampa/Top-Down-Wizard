@@ -14,6 +14,7 @@ public:
 	void Update(const float& someDelta);
 	void Draw(sf::RenderWindow& aWindow);
 	sf::CircleShape myBullet;
+	sf::FloatRect myRect;
 private:
 	sf::Vector2f myDir;
 	float mySpeed;
