@@ -1,16 +1,17 @@
 #include "Enemy.h"
 #include <cmath>
 #include <iostream>
-Enemy::Enemy()
+Enemy::Enemy(Player &aPlayer)
 {
 	myShape.setFillColor(sf::Color::Black);
 	myShape.setRadius(50.f);
 	myShape.setPosition(300, 500);
 	mySpeed = 50.f;
-	//myPlayer = aPlayer;
+	myPlayer = &aPlayer;
 	reloaded = true;
 	myTimer = 0;
 	myTimerSpeed = .2f;
+	myHealth = 5;
 }
 
 Enemy::~Enemy()
@@ -27,6 +28,7 @@ void Enemy::Init(Player &aPlayer)
 	reloaded = true;
 	myTimer = 0;
 	myTimerSpeed = .2f;
+	myHealth = 5;
 }
 
 void Enemy::Update(const float& someDelta, sf::RenderWindow& aWindow)
@@ -52,7 +54,6 @@ void Enemy::Update(const float& someDelta, sf::RenderWindow& aWindow)
 		else if (myBullets[i].myRect.intersects(myPlayer->myRect))
 		{
 			myBullets.erase(myBullets.begin() + i);
-			std::cout << "COLLIDE" << std::endl;
 		}
 	}
 	Fire();

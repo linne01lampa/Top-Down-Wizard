@@ -8,6 +8,7 @@ class Enemy
 {
 public:
 	Enemy();
+	Enemy(Player& aPlayer);
 	~Enemy();
 
 	void Init(Player &aPlayer);
@@ -18,6 +19,7 @@ public:
 	void Fire();
 	sf::CircleShape myShape;
 	sf::FloatRect myRect;
+	int myHealth;
 
 
 private:

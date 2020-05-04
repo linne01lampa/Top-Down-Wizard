@@ -20,7 +20,7 @@ private:
 	sf::Vector2f myMousePos;
 	Player myPlayer;
 	TileMap myTileMap;
-	Enemy myEnemy;
+	std::vector<Enemy> myEnemies;
 	sf::Texture myTexture;
 	std::vector<Bullet> myBullets;
 	sf::Vector2f myAim;
