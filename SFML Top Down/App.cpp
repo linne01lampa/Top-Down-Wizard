@@ -1,6 +1,7 @@
 #include "App.h"
 #include <SFML/System.hpp>
-#include <math.h>
+//#include <math.h>
+#include <cmath>
 #include <iostream>
 
 App::App()
@@ -8,6 +9,9 @@ App::App()
 	myTexture.loadFromFile("hat.png");
 	myPlayer.Init(myTexture);
 	myTileMap.Init();
+	myEnemy.Init(myPlayer);
+	App::myTimer = 0;
+	myBox.Init(myPlayer);
 	//myEnemies[0].Init(myPlayer);
 	myEnemies.push_back(Enemy(myPlayer));
 	myTimer = 0;
@@ -71,6 +75,7 @@ void App::Update(const float& someDelta, sf::RenderWindow& aWindow)
 	{
 		myEnemies[i].Update(someDelta, aWindow);
 	}
+	myBox.Update(someDelta, aWindow);
 	myPlayer.Update(someDelta, aWindow);
 }
 
@@ -82,9 +87,10 @@ void App::Draw(sf::RenderWindow& aWindow)
 		myEnemies[i].Draw(aWindow);
 	}
 	myPlayer.Draw(aWindow);
-	for (size_t i = 0; i < myBullets.size(); i++)
+	myBox.Draw(aWindow);
+	for (auto& myBullet : myBullets)
 	{
-		aWindow.draw(myBullets[i].myTrail);
-		aWindow.draw(myBullets[i].myBullet);
+		aWindow.draw(myBullet.myTrail);
+		aWindow.draw(myBullet.myBullet);
 	}
 }

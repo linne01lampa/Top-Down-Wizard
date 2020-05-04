@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TRAIL_HEADER
+#define TRAIL_HEADER
 
 #include "SFML/Graphics.hpp"
 #include "SFML/System/Vector2.hpp"
@@ -66,3 +67,4 @@ namespace ss
 
 	};
 }
+#endif

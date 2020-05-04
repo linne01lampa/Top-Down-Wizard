@@ -7,6 +7,18 @@ Enemy::Enemy(Player &aPlayer)
 	myShape.setRadius(50.f);
 	myShape.setPosition(300, 500);
 	mySpeed = 50.f;
+	//myPlayer = &aPlayer;
+	reloaded = true;
+	myTimer = 0;
+	myTimerSpeed = .2f;
+}
+
+Enemy::Enemy(Player &aPlayer)
+{
+	myShape.setFillColor(sf::Color::Black);
+	myShape.setRadius(50.f);
+	myShape.setPosition(300, 500);
+	mySpeed = 50.f;
 	myPlayer = &aPlayer;
 	reloaded = true;
 	myTimer = 0;
@@ -45,7 +57,7 @@ void Enemy::Update(const float& someDelta, sf::RenderWindow& aWindow)
 	{
 		myBullets[i].Update(someDelta);
 
-		if (myBullets[i].myBullet.getPosition().x < 0 || myBullets[i].myBullet.getPosition().x > aWindow.getSize().x 
+		if (myBullets[i].myBullet.getPosition().x < 0 || myBullets[i].myBullet.getPosition().x > aWindow.getSize().x
 			|| myBullets[i].myBullet.getPosition().y < 0 || myBullets[i].myBullet.getPosition().y > aWindow.getSize().y)
 		{
 			myBullets.erase(myBullets.begin() + i);

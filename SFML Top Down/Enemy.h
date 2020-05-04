@@ -8,7 +8,7 @@ class Enemy
 {
 public:
 	Enemy();
-	Enemy(Player& aPlayer);
+	Enemy(Player &aPlayer);
 	~Enemy();
 
 	void Init(Player &aPlayer);
@@ -20,7 +20,6 @@ public:
 	sf::CircleShape myShape;
 	sf::FloatRect myRect;
 	int myHealth;
-
 
 private:
 	float mySpeed;
