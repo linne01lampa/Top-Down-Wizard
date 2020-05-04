@@ -1,7 +1,7 @@
 #include "Enemy.h"
 #include <cmath>
 #include <iostream>
-Enemy::Enemy(Player &aPlayer)
+Enemy::Enemy()
 {
 	myShape.setFillColor(sf::Color::Black);
 	myShape.setRadius(50.f);
@@ -11,6 +11,7 @@ Enemy::Enemy(Player &aPlayer)
 	reloaded = true;
 	myTimer = 0;
 	myTimerSpeed = .2f;
+	myHealth = 5;
 }
 
 Enemy::Enemy(Player &aPlayer)

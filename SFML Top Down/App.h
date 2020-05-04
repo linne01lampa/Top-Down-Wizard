@@ -29,6 +29,10 @@ private:
 	sf::Vector2f myNorm;
 	float myTimer;
 	float myTimerSpeed = .2f;
+	bool special;
+	std::vector<Bullet> mySpecialBullet;
+	sf::Font myFont;
+	sf::Text myTextE;
 };
 
 #endif

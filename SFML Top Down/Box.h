@@ -15,6 +15,8 @@ public:
 	void Update(const float& someDelta, sf::RenderWindow& aWindow);
 	void Draw(sf::RenderWindow& aWindow);
 
+	bool GetPickable();
+
 	sf::Vector2f myCenter;
 	sf::RectangleShape myShape;
 	sf::FloatRect myRect;
