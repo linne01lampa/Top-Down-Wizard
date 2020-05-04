@@ -1,2 +1,4 @@
 C:\Users\linus.bensryd\source\repos\SFML Top Down\x64\Debug\SFML Top Down.exe
 C:\Users\linus.bensryd\source\repos\SFML Top Down\x64\Debug\SFML Top Down.pdb
+C:\Users\linus.bensryd\Documents\GitHub\Top-Down-Wizard\SFML Top Down\x64\Debug\SFML Top Down.exe
+C:\Users\linus.bensryd\Documents\GitHub\Top-Down-Wizard\SFML Top Down\x64\Debug\SFML Top Down.pdb

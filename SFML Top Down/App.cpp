@@ -1,6 +1,7 @@
 #include "App.h"
 #include <SFML/System.hpp>
-#include <math.h>
+//#include <math.h>
+#include <cmath>
 #include <iostream>
 
 App::App()
@@ -10,6 +11,7 @@ App::App()
 	myTileMap.Init();
 	myEnemy.Init(myPlayer);
 	App::myTimer = 0;
+	myBox.Init(myPlayer);
 }
 
 
@@ -56,10 +58,10 @@ void App::Update(const float& someDelta, sf::RenderWindow &aWindow)
 		else if (myBullets[i].myRect.intersects(myEnemy.myRect))
 		{
 			myBullets.erase(myBullets.begin() + i);
-			std::cout << "COLLIDE" << std::endl;
 		}
 	}
-	
+
+	myBox.Update(someDelta, aWindow);
 	myEnemy.Update(someDelta, aWindow);
 	myPlayer.Update(someDelta, aWindow);
 }
@@ -69,10 +71,10 @@ void App::Draw(sf::RenderWindow& aWindow)
 	myTileMap.Draw(aWindow);
 	myEnemy.Draw(aWindow);
 	myPlayer.Draw(aWindow);
-	for (size_t i = 0; i < myBullets.size(); i++)
+	myBox.Draw(aWindow);
+	for (auto& myBullet : myBullets)
 	{
-		aWindow.draw(myBullets[i].myTrail);
-		aWindow.draw(myBullets[i].myBullet);
+		aWindow.draw(myBullet.myTrail);
+		aWindow.draw(myBullet.myBullet);
 	}
-
 }

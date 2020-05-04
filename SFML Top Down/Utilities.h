@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UTILITIES_HEADER
+#define UTILITIES_HEADER
 
 #include "SFML/System/Vector2.hpp"
 
@@ -13,3 +14,4 @@ namespace Random
 {
 	float GetValue(float aMin, float aMax);
 }
+#endif
