@@ -23,12 +23,13 @@ int main()
 	//vm.height = 200;
 	//vm.width = 200;
 
-	App tempApp;
 
 	sf::RenderWindow myWindow(sf::VideoMode(1200, 800), "djur", sf::Style::Default);
 	//myWindow.setFramerateLimit(60);
 	//sf::View myView(sf::Vector2f(myWindow.getSize().x / 2, myWindow.getSize().y / 2 - 30), sf::Vector2f(1000.f,1000.f));
 
+	App tempApp(myWindow);
+	
 	sf::Clock tempClock;
 	sf::Time tempDelta;
 
