@@ -39,31 +39,31 @@ namespace ss
 
 	private:
 
-		int tilingCount = 0;
-		sf::Vector2f position;
-		sf::Vector2f lastPoint;
-		float textureWidth = 0.f;
+		int myTilingCount = 0;
+		sf::Vector2f myPosition;
+		sf::Vector2f myLastPoint;
+		float myTextureWidth = 0.f;
 
-		float lifetime = 2.5f;
+		float myLifetime = 2.5f;
 		float minDistance = 50.f;
-		sf::Color color = sf::Color::White;
-		sf::Color endColor = sf::Color::White;
-		sf::Texture* texture = nullptr;
-		ETextureMode textureMode = ETextureMode::Repeated;
-		std::pair<float, float> widthOffset;
-		float offsetRadius = 0.f;
+		sf::Color myColor = sf::Color::White;
+		sf::Color myEndColor = sf::Color::White;
+		sf::Texture* myTexture = nullptr;
+		ETextureMode myTextureMode = ETextureMode::Repeated;
+		std::pair<float, float> myWidthOffset;
+		float myOffsetRadius = 0.f;
 
 		struct STrailSegment
 		{
-			sf::Vector2f position;
-			sf::Vector2f offset;
-			float timer = 0.f;
-			sf::Color color;
-			float rotation;
-			float yCoord = 0.f;
-			float width;
+			sf::Vector2f myPosition;
+			sf::Vector2f myOffset;
+			float myTimer = 0.f;
+			sf::Color myColor;
+			float myRotation;
+			float myYCoord = 0.f;
+			float myWidth;
 		};
-		std::list<STrailSegment> points;
+		std::list<STrailSegment> myPoints;
 
 	};
 }

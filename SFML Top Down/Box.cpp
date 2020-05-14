@@ -6,7 +6,7 @@ Box::Box()
 	myShape.setFillColor(sf::Color(139, 69, 19));
 	myShape.setOutlineColor(sf::Color::Yellow);
 	myShape.setSize(sf::Vector2f(25, 25));
-	//myPlayer = &aPlayer;
+	myPlayer = new Player();
 	pickable = false;
 }
 

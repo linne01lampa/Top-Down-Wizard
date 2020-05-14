@@ -23,6 +23,15 @@ void TileMap::Init()
 	{
 		for (unsigned y = 0; y < 30; y++)
 		{
+			if (map[y][x] == 0)
+			{
+			myWalls.resize(myWalls.size() + 1);
+			//myWalls.back().setTexture(groundTex);
+			myWalls.back().setScale(2.f, 2.f);
+			myWalls.back().setTextureRect(sf::IntRect(16, 128, 16, 16));
+			myWalls.back().setPosition({ 32 * float(x), 32 * float(y) });
+			//break;
+			}
 			if (map[y][x] == 1)
 			{
 				switch (rand() % 2)
@@ -63,6 +72,10 @@ void TileMap::Init()
 void TileMap::Draw(sf::RenderWindow& aWindow)
 {
 	for (sf::Sprite sprite : sprites)
+	{
+		aWindow.draw(sprite);
+	}
+	for (sf::Sprite sprite : myWalls)
 	{
 		aWindow.draw(sprite);
 	}

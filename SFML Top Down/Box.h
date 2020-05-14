@@ -21,8 +21,7 @@ public:
 	sf::RectangleShape myShape;
 	sf::FloatRect myRect;
 
-	bool pickable;
-	
+	bool pickable;	
 private:
 	Player* myPlayer;
 };

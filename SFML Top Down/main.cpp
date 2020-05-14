@@ -21,7 +21,7 @@ int main()
 {
 	//sf::VideoMode vm;
 	//vm.height = 200;
-	//vm.width = 200;
+	//vm.myWidth = 200;
 
 
 	sf::RenderWindow myWindow(sf::VideoMode(1200, 800), "djur", sf::Style::Default);

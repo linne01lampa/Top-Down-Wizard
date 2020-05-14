@@ -34,6 +34,7 @@ private:
 	sf::Font myFont;
 	sf::Text myTextE;
 	sf::Text my2ndAttack;
+	void Type(const char * p);
 };
 
 #endif

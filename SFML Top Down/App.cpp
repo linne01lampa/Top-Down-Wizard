@@ -39,6 +39,16 @@ void App::Update(const float& someDelta, sf::RenderWindow& aWindow)
 	myAim = myMousePos - myPlayer.myCenter;
 	myNorm = myAim / sqrt(pow(myAim.x, 2) + pow(myAim.y, 2));
 
+	for (size_t i = 0; i < myTileMap.myWalls.size(); i++)
+	{
+		if (myPlayer.myRect.intersects(myTileMap.myWalls[i].getGlobalBounds()))
+		{
+			//HÄR SKA DEN VÄL COLLIDA?????????????????
+			myPlayer.MoveToLastPos();
+		}
+	}
+
+	
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && myTimer >= myTimerSpeed)
 	{
 		myBullets.push_back(Bullet(myNorm, 1000.f, myPlayer.myCenter));
@@ -127,9 +137,9 @@ void App::Update(const float& someDelta, sf::RenderWindow& aWindow)
 			}
 		}
 	}
-	for (auto& myEnemie : myEnemies)
+	for (auto& enemy : myEnemies)
 	{
-		myEnemie.Update(someDelta, aWindow);
+		enemy.Update(someDelta, aWindow);
 	}
 	for (auto& box : myBoxes)
 	{
@@ -173,3 +183,5 @@ void App::Draw(sf::RenderWindow& aWindow)
 		}
 	}
 }
+
+

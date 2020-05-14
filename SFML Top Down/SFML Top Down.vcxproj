@@ -156,6 +156,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="Trail.cpp" />
     <ClCompile Include="Utilities.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="Trail.h" />
     <ClInclude Include="Utilities.h" />

@@ -27,3 +27,9 @@
 *.exe
 *.out
 *.app
+*.ipch
+*.opendb
+*.db
+SFML Top Down/.vs/SFML Top Down/v16/.suo
+*.db
+SFML Top Down/.vs/SFML Top Down/v16/.suo
