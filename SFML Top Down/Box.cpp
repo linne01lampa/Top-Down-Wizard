@@ -14,13 +14,14 @@ Box::~Box()
 {
 }
 
-void Box::Init(Player &aPlayer)
+void Box::Init(Player &aPlayer, sf::Vector2f aPosition, int aVal)
 {
-	myShape.setPosition(100, 100);
+	myShape.setPosition(aPosition);
 	myShape.setFillColor(sf::Color(139, 69, 19));
 	myShape.setOutlineColor(sf::Color::Yellow);
 	myShape.setSize(sf::Vector2f(25, 25));
 	myPlayer = &aPlayer;
+	myVal = aVal;
 	pickable = false;
 }
 

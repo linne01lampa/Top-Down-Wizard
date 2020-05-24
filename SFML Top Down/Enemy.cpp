@@ -14,17 +14,36 @@ Enemy::Enemy()
 	myHealth = 5;
 }
 
-Enemy::Enemy(Player &aPlayer)
+Enemy::Enemy(Player& aPlayer, sf::Vector2f aPosition, std::vector<sf::Sprite> someWalls, bool aBig)
 {
-	myShape.setFillColor(sf::Color::Black);
-	myShape.setRadius(50.f);
-	myShape.setPosition(300, 500);
-	mySpeed = 50.f;
-	myPlayer = &aPlayer;
-	reloaded = true;
-	myTimer = 0;
-	myTimerSpeed = .2f;
-	myHealth = 5;
+	if (!aBig)
+	{
+		myShape.setFillColor(sf::Color::Black);
+		myShape.setRadius(20.f);
+		//myShape.setPosition(375, 600);
+		myShape.setPosition(aPosition);
+		mySpeed = 50.f;
+		myPlayer = &aPlayer;
+		reloaded = true;
+		myTimer = 0;
+		myTimerSpeed = .2f;
+		myHealth = 5;
+		myWalls = someWalls;
+	}
+	else
+	{
+		myShape.setFillColor(sf::Color::Red);
+		myShape.setRadius(100.f);
+		//myShape.setPosition(375, 600);
+		myShape.setPosition(aPosition);
+		mySpeed = 50.f;
+		myPlayer = &aPlayer;
+		reloaded = true;
+		myTimer = 0;
+		myTimerSpeed = .15f;
+		myHealth = 25;
+		myWalls = someWalls;
+	}
 }
 
 Enemy::~Enemy()
@@ -62,11 +81,22 @@ void Enemy::Update(const float& someDelta, sf::RenderWindow& aWindow)
 			|| myBullets[i].myBullet.getPosition().y < 0 || myBullets[i].myBullet.getPosition().y > aWindow.getSize().y)
 		{
 			myBullets.erase(myBullets.begin() + i);
+			break;
 		}
-
 		else if (myBullets[i].myRect.intersects(myPlayer->myRect))
 		{
 			myBullets.erase(myBullets.begin() + i);
+			myPlayer->Damage(-1);
+			break;
+		}
+
+		for (size_t l = 0; l < myWalls.size(); l++)
+		{
+			if (myBullets[i].myRect.intersects(myWalls[l].getGlobalBounds()))
+			{
+				myBullets.erase(myBullets.begin() + i);
+				break;
+			}
 		}
 	}
 	Fire();

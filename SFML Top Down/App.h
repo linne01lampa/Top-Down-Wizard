@@ -8,6 +8,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "TileMap.h"
+#include "Door.h"
 
 class App
 {
@@ -20,6 +21,7 @@ public:
 private:
 	sf::Vector2f myMousePos;
 	Player myPlayer;
+	Door myDoor;
 	TileMap myTileMap;
 	std::vector<Enemy> myEnemies;
 	std::vector<Box> myBoxes;
@@ -29,12 +31,28 @@ private:
 	sf::Vector2f myNorm;
 	float myTimer;
 	float myTimerSpeed = .2f;
-	bool special;
+	bool mySpecial;
 	std::vector<Bullet> mySpecialBullets;
 	sf::Font myFont;
 	sf::Text myTextE;
 	sf::Text my2ndAttack;
+	sf::Text myTextDead;
 	void Type(const char * p);
+	void LoadLevel(int aLvlNumber);
+	int myCurLevel;
+	bool myBroken;
+	float damage;
+	sf::Text myBoostText;
+	float myTextTimer = 4.f;
+	float myTextTime = 3.f;
+	bool myDoorActive;
+	sf::Texture myGroundTex;
+	sf::Text myHealthText;
+	int myWin;
+	sf::Text myWinText;
+	sf::Text myStory;
+	float myTimerStory;
+	float myTimeStory;
 };
 
 #endif

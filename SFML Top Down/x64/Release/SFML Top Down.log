@@ -1,0 +1,13 @@
+﻿  App.cpp
+C:\Users\linus.bensryd\Documents\GitHub\Top-Down-Wizardz\SFML Top Down\App.cpp(29,46): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  Box.cpp
+  Door.cpp
+  Enemy.cpp
+  main.cpp
+  Player.cpp
+  TileMap.cpp
+LINK : fatal error LNK1181: cannot open input file 'sfml-audio.lib'

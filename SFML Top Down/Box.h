@@ -10,7 +10,7 @@ public:
 	Box();
 	~Box();
 
-	void Init(Player &aPlayer);
+	void Init(Player &aPlayer, sf::Vector2f aPosition, int aVal);
 
 	void Update(const float& someDelta, sf::RenderWindow& aWindow);
 	void Draw(sf::RenderWindow& aWindow);
@@ -20,6 +20,7 @@ public:
 	sf::Vector2f myCenter;
 	sf::RectangleShape myShape;
 	sf::FloatRect myRect;
+	int myVal;
 
 	bool pickable;	
 private:

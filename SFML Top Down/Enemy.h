@@ -8,7 +8,7 @@ class Enemy
 {
 public:
 	Enemy();
-	Enemy(Player &aPlayer);
+	Enemy(Player &aPlayer, sf::Vector2f aPosition, std::vector<sf::Sprite> someWalls, bool aBig);
 	~Enemy();
 
 	void Init(Player &aPlayer);
@@ -28,6 +28,7 @@ private:
 	std::vector<Bullet> myBullets;
 	float myTimer;
 	float myTimerSpeed = .2f;
+	std::vector<sf::Sprite> myWalls;
 };
 
 #endif
